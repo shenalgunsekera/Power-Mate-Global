@@ -1,0 +1,307 @@
+@import "tailwindcss";
+
+/* ============================================================
+   Power Mate Investment — design tokens
+   Committed-maroon brand register. See /DESIGN.md
+   ============================================================ */
+
+:root {
+  /* Brand maroon scale (OKLCH, hue ~18-22) */
+  --brand-950: oklch(22% 0.08 18);
+  --brand-900: oklch(26% 0.1 18);
+  --brand-800: oklch(31% 0.12 18);
+  --brand-700: oklch(35% 0.13 18);
+  --brand-600: oklch(42% 0.16 20);
+  --brand-500: oklch(48% 0.19 22);
+  --brand-400: oklch(58% 0.17 22);
+  --brand-300: oklch(72% 0.11 22);
+  --brand-200: oklch(85% 0.06 22);
+  --brand-100: oklch(92% 0.03 22);
+  --brand-50: oklch(96% 0.014 22);
+
+  /* Tinted neutrals — chroma leans toward maroon hue, never dead gray */
+  --ink: oklch(21% 0.014 18);
+  --ink-soft: oklch(39% 0.012 18);
+  --ink-faint: oklch(56% 0.009 18);
+  --bg: oklch(99% 0 0);          /* True white — no cream tint (AI tell) */
+  --surface: oklch(97% 0.006 18); /* Maroon-tinted surface, not warm sand */
+  --line: oklch(90% 0.008 18);
+  --line-strong: oklch(84% 0.01 18);
+  --white: oklch(100% 0 0);
+
+  /* Semantic */
+  --success: oklch(58% 0.13 150);
+  --warning: oklch(72% 0.15 70);
+  --danger: oklch(55% 0.2 25);
+
+  /* Signature gradient — logo's maroon→crimson fade */
+  --grad-brand: linear-gradient(135deg, var(--brand-900) 0%, var(--brand-600) 60%, var(--brand-500) 100%);
+  --grad-dark: linear-gradient(160deg, var(--brand-950) 0%, var(--brand-800) 100%);
+
+  /* Font wiring */
+  --font-heading: var(--font-display, ui-sans-serif), system-ui, sans-serif;
+  --font-text: var(--font-body, ui-sans-serif), system-ui, sans-serif;
+
+  /* Motion — ease-out-quint for entrances, faster exit */
+  --ease-enter: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-exit: cubic-bezier(0.55, 0, 0.45, 1);
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Elevation — warm-maroon shadows, never harsh black */
+  --shadow-sm: 0 1px 2px oklch(26% 0.1 18 / 0.06), 0 1px 3px oklch(26% 0.1 18 / 0.04);
+  --shadow-md: 0 4px 14px oklch(26% 0.1 18 / 0.08), 0 2px 4px oklch(26% 0.1 18 / 0.05);
+  --shadow-lg: 0 18px 40px oklch(26% 0.1 18 / 0.11), 0 6px 14px oklch(26% 0.1 18 / 0.06);
+  --shadow-brand: 0 12px 30px oklch(35% 0.13 18 / 0.28);
+
+  /* Z-index scale */
+  --z-dropdown: 200;
+  --z-sticky: 300;
+  --z-modal-backdrop: 400;
+  --z-modal: 500;
+  --z-toast: 600;
+  --z-tooltip: 700;
+}
+
+/* Script-aware font overrides */
+html[lang="si"] {
+  --font-heading: var(--font-sinhala), sans-serif;
+  --font-text: var(--font-sinhala), sans-serif;
+}
+html[lang="ta"] {
+  --font-heading: var(--font-tamil), sans-serif;
+  --font-text: var(--font-tamil), sans-serif;
+}
+
+@theme inline {
+  --color-brand-950: var(--brand-950);
+  --color-brand-900: var(--brand-900);
+  --color-brand-800: var(--brand-800);
+  --color-brand-700: var(--brand-700);
+  --color-brand-600: var(--brand-600);
+  --color-brand-500: var(--brand-500);
+  --color-brand-400: var(--brand-400);
+  --color-brand-300: var(--brand-300);
+  --color-brand-200: var(--brand-200);
+  --color-brand-100: var(--brand-100);
+  --color-brand-50: var(--brand-50);
+
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-faint: var(--ink-faint);
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-white: var(--white);
+
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+
+  --font-sans: var(--font-text);
+  --font-display: var(--font-heading);
+
+  /* Radius scale — `pill` was referenced but never defined (buttons read square) */
+  --radius-pill: 999px;
+}
+
+@layer base {
+  * { border-color: var(--line); box-sizing: border-box; }
+
+  html {
+    /* Smooth scrolling is handled by Lenis (see smooth-scroll.tsx).
+       Keep a native fallback only when Lenis is disabled. */
+    -webkit-text-size-adjust: 100%;
+    font-optical-sizing: auto;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    @supports not (animation-timeline: scroll()) {
+      html { scroll-behavior: auto; }
+    }
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-text);
+    font-size: 1rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    font-kerning: normal;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    letter-spacing: -0.02em;
+    line-height: 1.08;
+    text-wrap: balance;
+    /* Inherit color from parent so dark sections (text-white) work correctly */
+    color: inherit;
+    font-feature-settings: "ss01" 1;
+    font-optical-sizing: auto;
+  }
+
+  p { text-wrap: pretty; }
+
+  /* WCAG-safe focus — never remove without replacement */
+  :focus-visible {
+    outline: 2.5px solid var(--brand-600);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  ::selection {
+    background: var(--brand-500);
+    color: var(--white);
+  }
+}
+
+@layer utilities {
+  .tabular { font-variant-numeric: tabular-nums; }
+
+  .container-pm {
+    width: 100%;
+    max-width: 74rem;
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 4.5vw, 2.5rem);
+  }
+
+  /* Spacing rhythm — vary density across sections for visual beat */
+  .section-pad {
+    padding-block: clamp(4rem, 9vw, 7.5rem);
+  }
+  /* Tighter for interactive/tool sections (calculator, branch locator) */
+  .section-pad-tight {
+    padding-block: clamp(2.5rem, 5vw, 4.5rem);
+  }
+  /* Generous for emotional high-points (stories, about mission) */
+  .section-pad-loose {
+    padding-block: clamp(5rem, 11vw, 9rem);
+  }
+
+  /* Kicker label — used selectively (not on every section) */
+  .kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--brand-700);
+  }
+  .kicker::before {
+    content: "";
+    display: block;
+    width: 1.5rem;
+    height: 2px;
+    border-radius: 2px;
+    background: var(--brand-500);
+    flex-shrink: 0;
+  }
+  .kicker--dark { color: var(--brand-200); }
+  .kicker--dark::before { background: var(--brand-300); }
+}
+
+@layer utilities {
+  /* Fine film grain — fixed overlay, sits above bg, below content.
+     Adds tactile "weight" (brass-and-leather brief) without muddying text. */
+  .grain-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    opacity: 0.22;
+    mix-blend-mode: multiply;
+    /* Grayscale noise (feColorMatrix saturate 0) so it adds texture, not a
+       color cast. fractalNoise alone is RGB and tints the page warm. */
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/%3E%3C/svg%3E");
+  }
+
+  /* Soft maroon spotlight, for layering depth behind dark sections */
+  .glow-radial {
+    background: radial-gradient(60% 60% at 50% 0%, oklch(48% 0.19 22 / 0.35), transparent 70%);
+  }
+
+  /* Animated underline that draws on hover — for inline editorial links */
+  .link-underline {
+    background-image: linear-gradient(currentColor, currentColor);
+    background-size: 0% 1.5px;
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    transition: background-size 0.4s var(--ease-out-expo);
+  }
+  .link-underline:hover { background-size: 100% 1.5px; }
+
+  /* Hairline that draws across as a section ages in */
+  .rule-draw { transform-origin: left; }
+}
+
+/* ---------- Loader ---------- */
+@keyframes pm-ring-spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes pm-shimmer {
+  100% { transform: translateX(100%); }
+}
+
+/* Marquee for the trust ticker */
+@keyframes pm-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.pm-marquee-track {
+  display: flex;
+  width: max-content;
+  animation: pm-marquee 38s linear infinite;
+}
+.pm-marquee:hover .pm-marquee-track { animation-play-state: paused; }
+
+/* ---------- Range slider ---------- */
+.pm-range {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--brand-100);
+  outline-offset: 4px;
+  cursor: pointer;
+}
+.pm-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  /* Visual size 20px, but we extend the click area via padding */
+  width: 1.25rem;
+  height: 1.25rem;
+  border-radius: 999px;
+  background: var(--white);
+  border: 3px solid var(--brand-600);
+  box-shadow: var(--shadow-md);
+  transition: transform 0.15s var(--ease-enter);
+  /* Expand touch target to 44px on mobile via padding trick */
+  padding: 0.75rem;
+  background-clip: content-box;
+}
+.pm-range::-webkit-slider-thumb:hover { transform: scale(1.1); }
+.pm-range::-moz-range-thumb {
+  width: 1.35rem; height: 1.35rem;
+  border-radius: 999px;
+  background: var(--white);
+  border: 3px solid var(--brand-600);
+  box-shadow: var(--shadow-md);
+}
+.pm-range::-moz-range-track {
+  height: 6px; border-radius: 999px; background: var(--brand-100);
+}
+
+/* ---------- Reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

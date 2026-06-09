@@ -252,14 +252,6 @@ const en = {
     teamSubtitle: "The people guiding Power Mate Investment.",
     team: [
       {
-        name: "Shenal Gunasekara",
-        role: "Founder / Director",
-        photo: "/team/founder.jpg",
-        initials: "SG",
-        bio: "Founder and Director of Power Mate Investment, leading the company's mission to put fair, fast micro-financing within reach of hardworking Sri Lankans.",
-        links: [] as { label: string; href: string }[],
-      },
-      {
         name: "Rukmal Bandaranayake",
         role: "HRM Consultant",
         photo: "/team/rukmal.jpg",

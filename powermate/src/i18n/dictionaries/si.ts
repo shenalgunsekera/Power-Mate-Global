@@ -245,7 +245,6 @@ const si: Dictionary = {
     teamTitle: "අපගේ කළමනාකරණ කණ්ඩායම",
     teamSubtitle: "Power Mate Investment මෙහෙයවන පුද්ගලයෝ.",
     team: [
-      { name: "Shenal Gunasekara", role: "Founder / Director", photo: "/team/founder.jpg", initials: "SG", bio: "Founder and Director of Power Mate Investment, leading the company's mission to put fair, fast micro-financing within reach of hardworking Sri Lankans.", links: [] as { label: string; href: string }[] },
       { name: "Rukmal Bandaranayake", role: "HRM Consultant", photo: "/team/rukmal.jpg", initials: "RB", bio: "Executive coach and HRM professional with over 15 years across AIA Insurance, MAS Holdings and HealthRecon Connect, and a faculty member at University Canada West. A certified executive coach (CCF Canada) and accredited MBTI practitioner, he is a member of CIPM Sri Lanka, CIPD UK and a Chartered Professional in Human Resources (CPHR).", links: [{ label: "theascendedu.ca", href: "https://www.theascendedu.ca" }, { label: "LinkedIn", href: "https://www.linkedin.com/in/rukmal-byk" }] },
       { name: "Shanika Perera Fonseka", role: "Company Lawyer & Corporate Trainer", photo: "/team/shanika.jpg", initials: "SF", bio: "Attorney-at-Law and HR professional with over 19 years in Human Resources and 12 years in lecturing and corporate training. She specializes in strategic planning, negotiation, leadership development and customer-service excellence, and is a member of the Bar Association of Sri Lanka and Toastmasters International.", links: [] as { label: string; href: string }[] },
     ],

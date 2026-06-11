@@ -26,6 +26,13 @@ export function LeadForm({
   const f = dict.form;
   const [status, setStatus] = useState<Status>("idle");
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [amount, setAmount] = useState("");
+
+  // Group the amount with thousands separators as the user types (e.g. 100,000)
+  function onAmountChange(value: string) {
+    const digits = value.replace(/\D/g, "");
+    setAmount(digits ? Number(digits).toLocaleString("en-US") : "");
+  }
 
   function validate(data: Record<string, string>) {
     const e: Record<string, string> = {};
@@ -80,6 +87,7 @@ export function LeadForm({
 
     setStatus("success");
     form.reset();
+    setAmount("");
   }
 
   if (status === "success") {
@@ -157,6 +165,7 @@ export function LeadForm({
         </Field>
         <Field label={f.amount} optional={dict.common.optional}>
           <input name="amount" type="text" inputMode="numeric" placeholder="500,000"
+            value={amount} onChange={(e) => onAmountChange(e.target.value)}
             className={cn(fieldClass, "border-line focus:border-brand-400")} />
         </Field>
       </div>

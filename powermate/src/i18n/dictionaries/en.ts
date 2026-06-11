@@ -217,7 +217,10 @@ const en = {
       {
         title: "Our talent development and empowerment",
         subtitle: "Investing in our team so they can serve you better.",
-        groups: [{ label: "Corporate Etiquette & Professional Conduct" }],
+        groups: [
+          { label: "Corporate Etiquette & Professional Conduct" },
+          { label: "Role of a Manager & Leadership Basics" },
+        ],
       },
       {
         title: "Our branch expansions",

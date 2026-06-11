@@ -26,7 +26,7 @@ export async function generateMetadata({
  *  (see each dictionary's `gallery.sections`); this only maps the image folders. */
 const SECTION_DIRS: string[][] = [
   ["community"],
-  ["talent"],
+  ["talent", "leadership"],
   ["bandarawela", "mahiyanganaya"],
 ];
 

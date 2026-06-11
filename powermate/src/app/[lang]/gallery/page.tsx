@@ -1,9 +1,10 @@
+import fs from "fs";
+import path from "path";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
-import { img, sized } from "@/lib/images";
 import { Reveal } from "@/components/ui/reveal";
 import { CtaBand } from "@/components/sections/cta-band";
 
@@ -21,18 +22,44 @@ export async function generateMetadata({
   };
 }
 
-const photos = [
-  { id: img.nineArches, w: 800, h: 1000, alt: "The Nine Arches Bridge at Ella, a stone viaduct curving through tea-country forest", caption: "Ella, Hill Country" },
-  { id: img.tukTuks, w: 800, h: 1000, alt: "Tuk-tuks loaded with surfboards on a Sri Lankan road", caption: "Everyday transport" },
-  { id: img.mirisssaBeach, w: 800, h: 600, alt: "Coconut Tree Hill at Mirissa on the southern coast", caption: "Mirissa, Southern Coast" },
-  { id: img.kandyCommunity, w: 800, h: 1000, alt: "People gathered at a hilltop temple near Kandy", caption: "Kandy, Central Province" },
-  { id: img.blueTrain, w: 800, h: 600, alt: "The blue hill-country train crossing the Nine Arches Bridge", caption: "The hill-country line" },
-  { id: img.elephants, w: 800, h: 600, alt: "Wild elephants grazing in a Sri Lankan national park", caption: "Wild Sri Lanka" },
-  { id: img.ricePlanting, w: 800, h: 1000, alt: "A farmer planting young rice in a flooded paddy field", caption: "Paddy fields" },
-  { id: img.galleTukTuk, w: 800, h: 600, alt: "A tuk-tuk parked along the ramparts of Galle Fort", caption: "Galle Fort" },
-  { id: img.mirisssaPeople, w: 800, h: 600, alt: "People relaxing on the sand at Mirissa beach", caption: "Coastal life" },
-  { id: img.goldJewelry, w: 800, h: 1000, alt: "Gold rings and a necklace, the security behind a gold loan", caption: "Gold loans" },
+/** Sections, each backed by a folder under public/media/gallery. */
+const SECTIONS = [
+  {
+    dir: "community",
+    title: "Our commitment to the communities we serve",
+    subtitle:
+      "Proud sponsors of the 2025 Annual Inter-Collegiate Cricket Tournament, organised by Dharmaraja College.",
+  },
+  {
+    dir: "talent",
+    title: "Developing and empowering our people",
+    subtitle:
+      "Corporate etiquette and professional-conduct training that helps our team grow.",
+  },
+  {
+    dir: "bandarawela",
+    title: "Our Bandarawela branch opening",
+    subtitle: "Welcoming the Uva community as we opened our doors in Bandarawela.",
+  },
+  {
+    dir: "mahiyanganaya",
+    title: "Our Mahiyanganaya branch opening",
+    subtitle: "Bringing our services closer to families and businesses in Mahiyanganaya.",
+  },
 ];
+
+function imagesFor(dir: string): string[] {
+  try {
+    const d = path.join(process.cwd(), "public", "media", "gallery", dir);
+    return fs
+      .readdirSync(d)
+      .filter((f) => /\.(jpe?g|png)$/i.test(f))
+      .sort()
+      .map((f) => `/media/gallery/${dir}/${f}`);
+  } catch {
+    return [];
+  }
+}
 
 export default async function GalleryPage({
   params,
@@ -45,12 +72,16 @@ export default async function GalleryPage({
   const dict = await getDictionary(locale);
   const g = dict.gallery;
 
+  const sections = SECTIONS.map((s) => ({ ...s, images: imagesFor(s.dir) })).filter(
+    (s) => s.images.length > 0,
+  );
+
   return (
     <>
       {/* Page hero */}
       <section className="relative overflow-hidden bg-(image:--grad-dark) py-20 text-white lg:py-24">
         <div aria-hidden className="pointer-events-none absolute inset-0">
-          <div className="absolute -right-40 top-0 h-[26rem] w-[26rem] rounded-full bg-brand-500/20 blur-[130px]" />
+          <div className="absolute -right-40 top-0 h-104 w-104 rounded-full bg-brand-500/20 blur-[130px]" />
         </div>
         <div className="container-pm relative max-w-3xl">
           <span className="kicker kicker--dark mb-4 block">{g.eyebrow}</span>
@@ -64,34 +95,48 @@ export default async function GalleryPage({
         <div aria-hidden className="mt-14 h-10 bg-bg [clip-path:ellipse(120%_100%_at_50%_100%)]" />
       </section>
 
-      {/* Masonry gallery */}
-      <section className="section-pad bg-bg">
-        <div className="container-pm">
-          <div className="columns-1 gap-4 sm:columns-2 lg:columns-3">
-            {photos.map((p, i) => (
-              <Reveal
-                key={p.caption}
-                kind="up"
-                delay={(i % 3) * 0.06}
-                className="group relative mb-4 block break-inside-avoid overflow-hidden rounded-2xl"
-              >
-                <Image
-                  src={sized(p.id, { w: p.w, h: p.h, q: 82 })}
-                  alt={p.alt}
-                  width={p.w}
-                  height={p.h}
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  className="h-auto w-full object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
-                />
-                <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-brand-950/75 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
-                <p className="pointer-events-none absolute bottom-4 left-4 translate-y-2 font-display text-sm font-bold text-white opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">
-                  {p.caption}
-                </p>
-              </Reveal>
-            ))}
+      {/* Sections */}
+      {sections.map((section, si) => (
+        <section
+          key={section.dir}
+          className={si % 2 === 1 ? "section-pad bg-surface" : "section-pad bg-bg"}
+        >
+          <div className="container-pm">
+            <Reveal kind="up" className="max-w-2xl">
+              <div className="flex items-baseline gap-4">
+                <span className="font-display text-sm font-bold tabular text-brand-400">
+                  {String(si + 1).padStart(2, "0")}
+                </span>
+                <h2 className="font-display text-balance text-[clamp(1.6rem,3.5vw,2.4rem)] font-bold leading-tight tracking-[-0.02em] text-ink">
+                  {section.title}
+                </h2>
+              </div>
+              <p className="mt-3 max-w-[60ch] text-[1.02rem] leading-relaxed text-ink-soft">
+                {section.subtitle}
+              </p>
+            </Reveal>
+
+            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {section.images.map((src, i) => (
+                <Reveal
+                  key={src}
+                  kind="up"
+                  delay={(i % 3) * 0.05}
+                  className="group relative aspect-[4/3] overflow-hidden rounded-2xl bg-brand-100"
+                >
+                  <Image
+                    src={src}
+                    alt={`${section.title} — Power Mate Investment`}
+                    fill
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.05]"
+                  />
+                </Reveal>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      ))}
 
       <CtaBand locale={locale} dict={dict} />
     </>

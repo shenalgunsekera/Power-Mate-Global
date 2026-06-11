@@ -246,7 +246,7 @@ const en = {
       { value: "5+", label: "Years of service" },
       { value: "6", label: "Branches" },
       { value: "10,000+", label: "Customers served" },
-      { value: "2", label: "Provinces covered" },
+      { value: "3", label: "Provinces covered" },
     ],
     teamTitle: "Our management team",
     teamSubtitle: "The people guiding Power Mate Investment.",
@@ -285,7 +285,7 @@ const en = {
     hero: {
       eyebrow: "Products & services",
       title: "Finance shaped around how you live and earn",
-      subtitle: "Six core solutions, one promise: fair terms, fast answers, and a partner who stays.",
+      subtitle: "Four core solutions, one promise: fair terms, fast answers, and a partner who stays.",
     },
     featuresLabel: "Highlights",
     everyProductTitle: "Every product comes with",

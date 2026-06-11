@@ -21,16 +21,16 @@ const photos = [
     credit: "Tea country",
   },
   {
-    src: sized(img.kandyCommunity, { w: 800, h: 600, q: 80 }),
-    alt: "A hilltop temple near Kandy in the Central Province",
+    src: "/Locations/Kandy/Kandy.png",
+    alt: "Kandy in the Central Province",
     caption: "Kandy, Central Province",
-    credit: "Nelligala Temple",
+    credit: "City of Kandy",
   },
   {
-    src: sized(img.hillCountry, { w: 800, h: 600, q: 80 }),
-    alt: "Misty green highlands of Sri Lanka's hill country",
-    caption: "Uva Highlands",
-    credit: "Hill country",
+    src: sized(img.mirisssaPeople, { w: 800, h: 600, q: 80 }),
+    alt: "A sandy beach on the Southern coast at Weligama",
+    caption: "Weligama, Southern Province",
+    credit: "Sandy beaches",
   },
 ];
 

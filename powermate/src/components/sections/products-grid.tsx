@@ -16,13 +16,18 @@ import { Reveal } from "@/components/ui/reveal";
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 const preview: Record<ProductKey, string> = {
-  micro: img.mirisssaPeople,
-  sme: img.tukTuks,
+  micro: "/Locations/Kandy/Vegitable%20seller/vegi.png",
+  sme: "/Locations/Kandy/Vegitable%20seller/sme.png",
   agriculture: img.ricePlanting,
   gold: img.goldJewelry,
   leasing: img.galleTukTuk,
   insurance: img.mirisssaBeach,
 };
+
+/** Local public images start with "/"; Unsplash ids go through the CDN sizer. */
+function srcFor(value: string, opts: { w: number; h: number; q: number }) {
+  return value.startsWith("/") ? value : sized(value, opts);
+}
 
 export function ProductsGrid({
   locale,
@@ -89,7 +94,7 @@ export function ProductsGrid({
                     {/* Thumbnail — gives the list imagery on every breakpoint */}
                     <span className="relative size-14 shrink-0 overflow-hidden rounded-xl bg-brand-100 sm:size-16">
                       <Image
-                        src={sized(preview[key], { w: 160, h: 160, q: 70 })}
+                        src={srcFor(preview[key], { w: 160, h: 160, q: 70 })}
                         alt=""
                         fill
                         sizes="64px"
@@ -144,7 +149,7 @@ export function ProductsGrid({
                     className="absolute inset-0"
                   >
                     <Image
-                      src={sized(preview[activeKey], { w: 900, h: 1125, q: 82 })}
+                      src={srcFor(preview[activeKey], { w: 900, h: 1125, q: 82 })}
                       alt={`${activeItem.name}, Power Mate Investment`}
                       fill
                       sizes="(max-width: 1024px) 0px, 45vw"

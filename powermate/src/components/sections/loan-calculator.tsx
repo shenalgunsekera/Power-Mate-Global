@@ -33,6 +33,7 @@ export function LoanCalculator({ locale, dict }: { locale: Locale; dict: Diction
   const defaultAmount = Math.round(terms.maxAmount * 0.3);
   const [amount, setAmount] = useState(defaultAmount);
   const [months, setMonths] = useState(Math.round(terms.maxMonths * 0.6));
+  const [rate, setRate] = useState(terms.minRate);
 
   // Keep inputs in range when product changes.
   function selectProduct(p: ProductKey) {
@@ -40,15 +41,17 @@ export function LoanCalculator({ locale, dict }: { locale: Locale; dict: Diction
     const t = productTerms[p];
     setAmount(Math.min(Math.max(50_000, Math.round(t.maxAmount * 0.3)), t.maxAmount));
     setMonths(Math.min(Math.round(t.maxMonths * 0.6) || 12, t.maxMonths));
+    setRate(t.minRate);
   }
 
   const result = useMemo(
-    () => emi(amount, terms.minRate, months),
-    [amount, terms.minRate, months],
+    () => emi(amount, rate, months),
+    [amount, rate, months],
   );
 
   const amountId = useId();
   const termId = useId();
+  const rateId = useId();
 
   return (
     <section id="calculator" className="section-pad-tight scroll-mt-20 bg-bg">
@@ -137,6 +140,32 @@ export function LoanCalculator({ locale, dict }: { locale: Locale; dict: Diction
                 <span>
                   {terms.maxMonths} {c.months}
                 </span>
+              </div>
+            </div>
+
+            {/* Interest rate */}
+            <div className="flex flex-col gap-3">
+              <div className="flex items-baseline justify-between">
+                <label htmlFor={rateId} className="text-sm font-semibold text-ink">
+                  {c.rateLabel}
+                </label>
+                <span className="font-display text-lg font-bold text-brand-700 tabular">
+                  {rate}%
+                </span>
+              </div>
+              <input
+                id={rateId}
+                type="range"
+                min={0}
+                max={100}
+                step={0.5}
+                value={rate}
+                onChange={(e) => setRate(Number(e.target.value))}
+                className="pm-range"
+              />
+              <div className="flex justify-between text-xs text-ink-faint tabular">
+                <span>0%</span>
+                <span>100%</span>
               </div>
             </div>
 

@@ -32,13 +32,13 @@ export type ProductKey =
   | "leasing"
   | "insurance";
 
-/** Stable ordering + icon mapping. Labels/descriptions live in the dictionaries. */
+/** Stable ordering + icon mapping. Labels/descriptions live in the dictionaries.
+ *  Gold and Leasing are intentionally omitted (no licence yet); their dictionary
+ *  entries remain but are not surfaced anywhere. */
 export const productOrder: ProductKey[] = [
   "micro",
   "sme",
   "agriculture",
-  "gold",
-  "leasing",
   "insurance",
 ];
 

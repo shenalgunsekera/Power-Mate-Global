@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import { ChevronDown } from "lucide-react";
+import { GalleryLightbox } from "@/components/gallery-lightbox";
 import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { CtaBand } from "@/components/sections/cta-band";
@@ -41,29 +42,6 @@ function imagesFor(dir: string): string[] {
   } catch {
     return [];
   }
-}
-
-function GalleryGrid({ images, alt }: { images: string[]; alt: string }) {
-  return (
-    <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      {images.map((src, i) => (
-        <div
-          key={src}
-          className="group relative aspect-4/3 overflow-hidden rounded-2xl bg-brand-100"
-        >
-          <Image
-            src={src}
-            alt={alt}
-            fill
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-            className={`object-cover transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.05] ${
-              i === 0 ? "object-top" : "object-center"
-            }`}
-          />
-        </div>
-      ))}
-    </div>
-  );
 }
 
 export default async function GalleryPage({
@@ -173,9 +151,10 @@ export default async function GalleryPage({
                           <span className="text-xs text-ink-faint tabular">{gr.images.length}</span>
                         </div>
                       )}
-                      <GalleryGrid
+                      <GalleryLightbox
                         images={gr.images}
                         alt={`${gr.label ?? section.title} — Power Mate Investment`}
+                        caption={gr.label ?? section.title}
                       />
                     </div>
                   ))}

@@ -1,25 +1,17 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
 import Image from "next/image";
 import { ArrowRight, Phone, BadgeCheck, MapPin, Clock } from "lucide-react";
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
-import { localeHref, cn } from "@/lib/utils";
+import { localeHref } from "@/lib/utils";
 import { company } from "@/data/site";
 import { img, sized } from "@/lib/images";
 import { ButtonLink } from "@/components/ui/button";
 
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
-
-// One image per product line — the background cycles through them so the hero
-// tells the whole story: household solar, SME machinery, home equipment.
-const HERO_IMAGES = [
-  { src: img.solarHero, pos: "object-[65%_45%]" },
-  { src: img.machinery, pos: "object-center" },
-  { src: img.appliances, pos: "object-center" },
-];
 
 export function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   const h = dict.hero;
@@ -35,17 +27,6 @@ export function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   const contentOpacity = useTransform(scrollYProgress, [0, 0.7], [1, reduce ? 1 : 0]);
   const cueOpacity = useTransform(scrollYProgress, [0, 0.12], [1, 0]);
 
-  // Slowly cycle the background through the three product lines.
-  const [active, setActive] = useState(0);
-  useEffect(() => {
-    if (reduce) return;
-    const id = setInterval(
-      () => setActive((i) => (i + 1) % HERO_IMAGES.length),
-      6000,
-    );
-    return () => clearInterval(id);
-  }, [reduce]);
-
   const stats = [
     { icon: BadgeCheck, value: h.stat2Value, label: h.stat2Label },
     { icon: MapPin, value: h.stat1Value, label: h.stat1Label },
@@ -57,24 +38,17 @@ export function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
       ref={ref}
       className="relative flex min-h-svh flex-col overflow-hidden bg-brand-950 text-white"
     >
-      {/* ── Background photo — Nine Arches Bridge, parallax via overscan ── */}
+      {/* ── Background photo — solar array, parallax via overscan ── */}
       <div aria-hidden className="absolute inset-0 overflow-hidden">
         <motion.div className="absolute inset-0 scale-[1.18]" style={{ y: photoY }}>
-          {HERO_IMAGES.map((im, i) => (
-            <Image
-              key={im.src}
-              src={sized(im.src, { w: 1920, q: 85 })}
-              alt=""
-              fill
-              priority={i === 0}
-              sizes="100vw"
-              className={cn(
-                "object-cover transition-opacity duration-1500 ease-in-out",
-                im.pos,
-                i === active ? "opacity-100" : "opacity-0",
-              )}
-            />
-          ))}
+          <Image
+            src={sized(img.solarHero, { w: 1920, q: 85 })}
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-[65%_45%]"
+          />
         </motion.div>
         <div className="absolute inset-0 bg-linear-to-r from-brand-950/85 via-brand-900/40 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 h-1/3 bg-linear-to-t from-brand-950/65 to-transparent" />

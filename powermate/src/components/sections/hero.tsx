@@ -1,17 +1,25 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { ArrowRight, Phone, BadgeCheck, MapPin, Clock } from "lucide-react";
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
-import { localeHref } from "@/lib/utils";
+import { localeHref, cn } from "@/lib/utils";
 import { company } from "@/data/site";
 import { img, sized } from "@/lib/images";
 import { ButtonLink } from "@/components/ui/button";
 
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
+
+// One image per product line — the background cycles through them so the hero
+// tells the whole story: household solar, SME machinery, home equipment.
+const HERO_IMAGES = [
+  { src: img.solarHero, pos: "object-[65%_45%]" },
+  { src: img.machinery, pos: "object-center" },
+  { src: img.appliances, pos: "object-center" },
+];
 
 export function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   const h = dict.hero;
@@ -27,6 +35,17 @@ export function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   const contentOpacity = useTransform(scrollYProgress, [0, 0.7], [1, reduce ? 1 : 0]);
   const cueOpacity = useTransform(scrollYProgress, [0, 0.12], [1, 0]);
 
+  // Slowly cycle the background through the three product lines.
+  const [active, setActive] = useState(0);
+  useEffect(() => {
+    if (reduce) return;
+    const id = setInterval(
+      () => setActive((i) => (i + 1) % HERO_IMAGES.length),
+      6000,
+    );
+    return () => clearInterval(id);
+  }, [reduce]);
+
   const stats = [
     { icon: BadgeCheck, value: h.stat2Value, label: h.stat2Label },
     { icon: MapPin, value: h.stat1Value, label: h.stat1Label },
@@ -41,14 +60,21 @@ export function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
       {/* ── Background photo — Nine Arches Bridge, parallax via overscan ── */}
       <div aria-hidden className="absolute inset-0 overflow-hidden">
         <motion.div className="absolute inset-0 scale-[1.18]" style={{ y: photoY }}>
-          <Image
-            src={sized(img.marketLife, { w: 1920, q: 85 })}
-            alt=""
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-[65%_45%]"
-          />
+          {HERO_IMAGES.map((im, i) => (
+            <Image
+              key={im.src}
+              src={sized(im.src, { w: 1920, q: 85 })}
+              alt=""
+              fill
+              priority={i === 0}
+              sizes="100vw"
+              className={cn(
+                "object-cover transition-opacity duration-1500 ease-in-out",
+                im.pos,
+                i === active ? "opacity-100" : "opacity-0",
+              )}
+            />
+          ))}
         </motion.div>
         <div className="absolute inset-0 bg-linear-to-r from-brand-950/85 via-brand-900/40 to-transparent" />
         <div className="absolute inset-x-0 bottom-0 h-1/3 bg-linear-to-t from-brand-950/65 to-transparent" />
@@ -104,7 +130,7 @@ export function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
               {h.ctaPrimary}
               <ArrowRight className="size-4" aria-hidden />
             </ButtonLink>
-            <ButtonLink href={localeHref(locale, "/products#calculator")} variant="onDarkGhost" size="md">
+            <ButtonLink href={localeHref(locale, "/products")} variant="onDarkGhost" size="md">
               {h.ctaSecondary}
             </ButtonLink>
           </motion.div>
@@ -124,10 +150,10 @@ export function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
             ))}
             <a
               href={company.phoneHref}
-              className="ms-auto hidden items-center gap-2 whitespace-nowrap rounded-pill border border-white/20 px-3.5 py-1.5 text-sm font-medium text-brand-100 transition-colors hover:border-white/50 hover:text-white md:inline-flex"
+              className="flex items-center gap-2 transition-colors hover:text-white"
             >
-              <Phone className="size-4" aria-hidden />
-              <span className="tabular font-bold text-white">{company.hotline}</span>
+              <Phone className="size-4 shrink-0 text-brand-300" strokeWidth={1.8} aria-hidden />
+              <span className="font-display text-sm font-bold tabular text-white">{company.hotline}</span>
             </a>
           </motion.dl>
         </div>

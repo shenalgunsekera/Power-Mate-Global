@@ -57,12 +57,13 @@ export async function generateMetadata({
       template: "%s",
     },
     description: dict.meta.home.description,
-    metadataBase: new URL("https://powermate.lk"),
+    metadataBase: new URL("https://powermateglobal.lk"),
     alternates: {
       languages: {
         en: "/en",
         si: "/si",
         ta: "/ta",
+        zh: "/zh",
       },
     },
   };

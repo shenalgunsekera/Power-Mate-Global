@@ -18,7 +18,7 @@ export async function generateMetadata({
   if (!isLocale(lang)) return {};
   const dict = await getDictionary(lang);
   return {
-    title: `${dict.nav.gallery} | Power Mate Investment`,
+    title: `${dict.nav.gallery} | Power Mate Global`,
     description: dict.gallery.subtitle,
   };
 }
@@ -153,7 +153,7 @@ export default async function GalleryPage({
                       )}
                       <GalleryLightbox
                         images={gr.images}
-                        alt={`${gr.label ?? section.title} — Power Mate Investment`}
+                        alt={`${gr.label ?? section.title} — Power Mate Global`}
                         caption={gr.label ?? section.title}
                       />
                     </div>

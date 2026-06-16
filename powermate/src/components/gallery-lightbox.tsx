@@ -145,7 +145,7 @@ export function GalleryLightbox({
                       aria-hidden
                     />
                     <span className="font-display text-sm font-extrabold tracking-tight">
-                      POWER MATE <span className="font-semibold text-brand-200">INVESTMENT</span>
+                      POWER MATE <span className="font-semibold text-brand-200">GLOBAL</span>
                     </span>
                   </span>
                   <span className="whitespace-nowrap text-xs text-brand-100">

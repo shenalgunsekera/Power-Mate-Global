@@ -54,7 +54,7 @@ export function Logo({
               light ? "text-brand-200" : "text-brand-700"
             }`}
           >
-            INVESTMENT
+            GLOBAL
           </span>
         </span>
       )}

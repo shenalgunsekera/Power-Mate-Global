@@ -16,12 +16,9 @@ import { Reveal } from "@/components/ui/reveal";
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
 
 const preview: Record<ProductKey, string> = {
-  micro: "/Locations/Kandy/Vegitable%20seller/vegi.png",
-  sme: "/Locations/Kandy/Vegitable%20seller/sme.png",
-  agriculture: img.ricePlanting,
-  gold: img.goldJewelry,
-  leasing: img.galleTukTuk,
-  insurance: "/Locations/Kandy/Vegitable%20seller/crash.png",
+  solar: img.solarPanels,
+  machinery: img.machinery,
+  equipment: img.appliances,
 };
 
 /** Local public images start with "/"; Unsplash ids go through the CDN sizer. */
@@ -150,7 +147,7 @@ export function ProductsGrid({
                   >
                     <Image
                       src={srcFor(preview[activeKey], { w: 900, h: 1125, q: 82 })}
-                      alt={`${activeItem.name}, Power Mate Investment`}
+                      alt={`${activeItem.name}, Power Mate Global`}
                       fill
                       sizes="(max-width: 1024px) 0px, 45vw"
                       className="object-cover"

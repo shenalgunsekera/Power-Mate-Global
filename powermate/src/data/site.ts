@@ -1,67 +1,38 @@
 /**
  * Language-neutral site data.
  *
- * ⚠️ PLACEHOLDER DATA — replace phone numbers, addresses, email, and branch
- * coordinates with the real Power Mate Investment details (the Facebook page
- * could not be scraped automatically). Structure and types are production-ready.
+ * ⚠️ PLACEHOLDER DATA — replace phone numbers, addresses, email, and showroom
+ * coordinates with the real Power Mate Global details. Structure and types are
+ * production-ready.
  */
 
 export const company = {
-  name: "Power Mate Investment",
-  tagline: "Strengthening Your Financial Power",
+  name: "Power Mate Global",
+  tagline: "Genuine Imports. Real Support.",
   phone: "011 2080 8888",
   phoneHref: "tel:+941120808888",
   hotline: "011 2080 8888",
-  email: "info@pmi.lk",
+  email: "info@powermateglobal.lk",
   whatsapp: "070 708 0033",
   whatsappHref: "https://wa.me/94707080033",
-  facebook: "https://www.facebook.com/powermateinvestments",
+  facebook: "https://www.facebook.com/powermateglobal",
   address: "973/3A, Oruwala, Athurugiriya, Colombo",
   hoursWeekday: "8:30 AM – 5:00 PM",
   hoursSaturday: "8:30 AM – 1:00 PM",
   established: 2020,
   branchCount: 7,
-  customersServed: "10,000+",
+  customersServed: "5,000+",
 } as const;
 
-export type ProductKey =
-  | "micro"
-  | "sme"
-  | "agriculture"
-  | "gold"
-  | "leasing"
-  | "insurance";
+export type ProductKey = "solar" | "machinery" | "equipment";
 
-/** Stable ordering + icon mapping. Labels/descriptions live in the dictionaries.
- *  Gold and Leasing are intentionally omitted (no licence yet); their dictionary
- *  entries remain but are not surfaced anywhere. */
-export const productOrder: ProductKey[] = [
-  "micro",
-  "sme",
-  "agriculture",
-  "insurance",
-];
+/** Stable ordering + icon mapping. Labels/descriptions live in the dictionaries. */
+export const productOrder: ProductKey[] = ["solar", "machinery", "equipment"];
 
 export const productIcon: Record<ProductKey, string> = {
-  micro: "Sprout",
-  sme: "Store",
-  agriculture: "Tractor",
-  gold: "Gem",
-  leasing: "Car",
-  insurance: "ShieldCheck",
-};
-
-/** Indicative rates/terms shown by the loan calculator, per product. */
-export const productTerms: Record<
-  ProductKey,
-  { minRate: number; maxAmount: number; maxMonths: number }
-> = {
-  micro: { minRate: 18, maxAmount: 500_000, maxMonths: 24 },
-  sme: { minRate: 14, maxAmount: 10_000_000, maxMonths: 60 },
-  agriculture: { minRate: 12, maxAmount: 2_000_000, maxMonths: 48 },
-  gold: { minRate: 9, maxAmount: 5_000_000, maxMonths: 12 },
-  leasing: { minRate: 13, maxAmount: 8_000_000, maxMonths: 60 },
-  insurance: { minRate: 0, maxAmount: 0, maxMonths: 0 },
+  solar: "SunMedium",
+  machinery: "Factory",
+  equipment: "Refrigerator",
 };
 
 export interface Branch {

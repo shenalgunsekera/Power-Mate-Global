@@ -3,39 +3,39 @@ import type { ProductKey } from "@/data/site";
 const en = {
   meta: {
     home: {
-      title: "Power Mate Investment, Strengthening Your Financial Power",
+      title: "Power Mate Global, Genuine Imports. Real Support.",
       description:
-        "Fast, fair and flexible loans for individuals, farmers and businesses across Sri Lanka. Micro, SME, agriculture, gold loans, leasing and insurance.",
+        "Direct importers of household solar systems, SME machinery and home equipment in Sri Lanka. Genuine quality, fair prices and real after-sales support.",
     },
     about: {
-      title: "About Us, Power Mate Investment",
+      title: "About Us, Power Mate Global",
       description:
-        "A trusted Sri Lankan finance partner built on transparency, speed and genuine care for every customer.",
+        "A trusted Sri Lankan importer of solar, machinery and home equipment, built on genuine quality, honest pricing and real support.",
     },
     products: {
-      title: "Products & Services, Power Mate Investment",
+      title: "Products, Power Mate Global",
       description:
-        "Explore micro loans, SME loans, agriculture loans, gold loans, leasing and insurance solutions tailored for Sri Lanka.",
+        "Explore household solar systems, SME machinery and home equipment, imported direct from trusted manufacturers and backed by warranty and service.",
     },
     branches: {
-      title: "Branch Network, Power Mate Investment",
+      title: "Showrooms, Power Mate Global",
       description:
-        "Find your nearest Power Mate Investment branch. Islandwide service across every province.",
+        "Find your nearest Power Mate Global showroom. Islandwide sales, delivery and after-sales support across every province.",
     },
     careers: {
-      title: "Careers, Power Mate Investment",
+      title: "Careers, Power Mate Global",
       description:
-        "Build a career that strengthens your community. Explore open roles at Power Mate Investment.",
+        "Build a career with Sri Lanka's trusted import partner. Explore open roles at Power Mate Global.",
     },
     contact: {
-      title: "Contact Us, Power Mate Investment",
+      title: "Contact Us, Power Mate Global",
       description:
-        "Talk to a financial partner who listens. Call, message or visit any of our islandwide branches.",
+        "Talk to a team that listens. Call, message or visit any of our islandwide showrooms for product advice and quotes.",
     },
     faqs: {
-      title: "FAQs, Power Mate Investment",
+      title: "FAQs, Power Mate Global",
       description:
-        "Answers to common questions about loans, eligibility, repayment and applying with Power Mate Investment.",
+        "Answers to common questions about our products, warranty, installation, delivery and after-sales support.",
     },
   },
 
@@ -43,12 +43,12 @@ const en = {
     home: "Home",
     about: "About Us",
     products: "Products",
-    branches: "Branch Network",
+    branches: "Showrooms",
     careers: "Careers",
     contact: "Contact Us",
     faqs: "FAQs",
     gallery: "Gallery",
-    apply: "Apply Now",
+    apply: "Inquire Now",
     skipToContent: "Skip to content",
     menu: "Menu",
     close: "Close",
@@ -56,9 +56,9 @@ const en = {
   },
 
   common: {
-    applyNow: "Apply Now",
-    calculateLoan: "Calculate Your Loan",
-    findBranch: "Find a Branch",
+    applyNow: "Inquire Now",
+    calculateLoan: "Request a quote",
+    findBranch: "Find a Showroom",
     learnMore: "Learn more",
     viewAll: "View all products",
     getStarted: "Get started",
@@ -70,143 +70,122 @@ const en = {
   },
 
   hero: {
-    eyebrow: "Trusted micro-finance partner",
-    title: "Empowering Dreams Through Smart Financial Solutions",
+    eyebrow: "Direct importers of solar, machinery & home equipment",
+    title: "Powering Sri Lankan homes and businesses with the world's best",
     subtitle:
-      "From a first harvest loan to growing a family business, Power Mate Investment gives hardworking Sri Lankans fast approvals, fair rates and a partner who stays for the long run.",
-    ctaPrimary: "Apply Now",
-    ctaSecondary: "Calculate Your Loan",
-    ctaTertiary: "Find a Branch",
+      "Power Mate Global imports household solar systems, SME machinery and home equipment direct from trusted manufacturers, genuine quality you can rely on, at prices that make sense.",
+    ctaPrimary: "Inquire Now",
+    ctaSecondary: "Explore products",
+    ctaTertiary: "Find a Showroom",
     stat1Value: "7",
-    stat1Label: "Branches",
-    stat2Value: "10,000+",
-    stat2Label: "Customers served",
-    stat3Value: "24 hrs",
-    stat3Label: "Typical approval",
+    stat1Label: "Showrooms",
+    stat2Value: "Genuine",
+    stat2Label: "Direct imports",
+    stat3Value: "Islandwide",
+    stat3Label: "Delivery & service",
   },
 
   products: {
-    eyebrow: "What we offer",
-    title: "Financial solutions for every stage of life",
+    eyebrow: "What we supply",
+    title: "Solutions for energy, enterprise and everyday life",
     subtitle:
-      "Whether you are planting a field, stocking a shop or buying your first vehicle, there is a product built for the way you earn.",
+      "Whether you are cutting your power bill, equipping a workshop or fitting out your home, we import the genuine product for the job, and stand behind it.",
     items: {
-      micro: {
-        name: "Micro Loans",
-        short: "Small loans that start big journeys.",
+      solar: {
+        name: "Household Solar",
+        short: "Clean power for every home.",
         description:
-          "Accessible working capital for self-employed individuals and small traders, minimal paperwork, quick release and repayment that follows your cash flow.",
-        features: ["From LKR 25,000", "Group & individual options", "Weekly or monthly repayment"],
+          "Complete rooftop solar systems, panels, inverters and battery storage, imported direct and sized for Sri Lankan homes. Cut your electricity bill and ride out every power cut.",
+        features: ["Panels, inverters & batteries", "On-grid & hybrid systems", "Installation & after-sales support"],
       },
-      sme: {
-        name: "SME Loans",
-        short: "Fuel to grow your business.",
+      machinery: {
+        name: "SME Machinery",
+        short: "Equip your business to grow.",
         description:
-          "Larger facilities for established small and medium enterprises ready to expand stock, equipment or premises, with terms that match your trading cycle.",
-        features: ["Up to LKR 10 million", "Up to 60-month terms", "Dedicated relationship officer"],
+          "Imported machinery and tools for small and medium enterprises, from workshop and agriculture equipment to food-processing and manufacturing lines, backed by genuine parts and service.",
+        features: ["Workshop & industrial machines", "Genuine spare parts", "Warranty & technical support"],
       },
-      agriculture: {
-        name: "Agriculture Loans",
-        short: "Backing the people who feed the nation.",
+      equipment: {
+        name: "Household Equipment",
+        short: "Quality appliances for everyday life.",
         description:
-          "Seasonal and term financing for farmers and agri-businesses, timed to planting and harvest, with grace periods that respect the land.",
-        features: ["Seasonal grace periods", "Crop & livestock cover", "Lower indicative rates"],
-      },
-      gold: {
-        name: "Gold Loans",
-        short: "Instant value from what you already own.",
-        description:
-          "Safe, insured pledging of your gold for same-day cash. Transparent valuation, secure storage and flexible redemption whenever you are ready.",
-        features: ["Same-day release", "Insured, secure storage", "Competitive per-gram rates"],
-      },
-      leasing: {
-        name: "Leasing",
-        short: "Drive your plans forward.",
-        description:
-          "Vehicle and equipment leasing for personal and business use, three-wheelers to lorries, with structured rentals you can plan around.",
-        features: ["Vehicles & machinery", "Up to 60-month rentals", "Fast registration support"],
-      },
-      insurance: {
-        name: "Insurance Solutions",
-        short: "Protect what you work so hard to build.",
-        description:
-          "Life, motor, health and crop cover arranged alongside your loan, so a setback never undoes your progress.",
-        features: ["Life, motor & health", "Crop & asset protection", "Bundled with your facility"],
+          "Home appliances and electrical equipment imported from trusted manufacturers, kitchen and laundry to comfort and cleaning, at honest direct-import prices with islandwide delivery.",
+        features: ["Kitchen & laundry appliances", "Trusted global brands", "Islandwide delivery"],
       },
     } satisfies Record<ProductKey, { name: string; short: string; description: string; features: string[] }>,
   },
 
   why: {
     eyebrow: "Why choose us",
-    title: "A financial partner you can count on",
+    title: "An import partner you can rely on",
     subtitle:
-      "We measure success by the businesses that grow and the families that sleep easier, not just the loans we issue.",
+      "We measure success by the homes that save energy and the businesses that run better, not just the boxes we ship.",
     items: [
-      { title: "Fast Approval", description: "Most applications are reviewed within 24 hours, so opportunity never waits on paperwork." },
-      { title: "Trusted Partner", description: "Trusted by more than 10,000 customers, with transparent terms and no hidden surprises." },
-      { title: "Flexible Repayment", description: "Plans that follow your income, weekly, monthly or seasonal, built around how you actually earn." },
-      { title: "Close to You", description: "Seven branches across the Central, Uva and Southern provinces, with officers who speak your language and know your area." },
+      { title: "Direct Imports", description: "We import straight from trusted manufacturers, so you get genuine quality at honest prices, with no middlemen in between." },
+      { title: "Quality Assured", description: "Every product is checked and backed by warranty, from solar inverters to kitchen appliances." },
+      { title: "After-Sales Support", description: "Spare parts, servicing and technical help long after the sale, not just at the point of purchase." },
+      { title: "Close to You", description: "Showrooms across the Central, Uva and Southern provinces, with staff who speak your language and know your area." },
     ],
   },
 
   calculator: {
     eyebrow: "Plan with confidence",
-    title: "Calculate your loan",
-    subtitle: "Estimate your monthly instalment in seconds. Indicative only, your final offer is confirmed at the branch.",
-    productLabel: "Loan type",
-    amountLabel: "Loan amount",
-    termLabel: "Repayment period",
-    rateLabel: "Indicative annual rate",
+    title: "Request a quote",
+    subtitle: "Tell us what you need and we'll prepare a clear quote. Indicative only, your final price is confirmed at the showroom.",
+    productLabel: "Product type",
+    amountLabel: "Budget",
+    termLabel: "Timeframe",
+    rateLabel: "Quantity",
     months: "months",
-    monthlyPayment: "Estimated monthly payment",
-    totalPayable: "Total payable",
-    totalInterest: "Total interest",
-    perMonth: "/ month",
+    monthlyPayment: "Estimated total",
+    totalPayable: "Total",
+    totalInterest: "Notes",
+    perMonth: "",
     disclaimer:
-      "Estimates use the reducing-balance method and an indicative rate. Actual rates depend on your profile, product and assessment.",
-    applyCta: "Apply for this loan",
-    notAvailable: "Use the contact form for a tailored insurance quote.",
+      "Estimates are indicative only. Actual prices depend on the product, specification and availability.",
+    applyCta: "Inquire about this product",
+    notAvailable: "Use the contact form for a tailored quote.",
   },
 
   stories: {
     eyebrow: "Customer stories",
-    title: "Real people, real progress",
-    subtitle: "The dreams behind the numbers.",
+    title: "Real homes, real businesses",
+    subtitle: "The people behind the products.",
     items: [
-      { quote: "The harvest loan came through in two days. That season changed everything for my family.", name: "Nimal Perera", role: "Paddy farmer, Anuradhapura" },
-      { quote: "They believed in my tailoring shop when no one else would. Now I employ four people.", name: "Fathima Rizwan", role: "Boutique owner, Kandy" },
-      { quote: "A gold loan covered my daughter's university fees the same morning. Calm, fair, fast.", name: "Suresh Kumar", role: "Teacher, Jaffna" },
+      { quote: "Our solar system paid for itself faster than we expected, and the power cuts no longer bother us at all.", name: "Nimal Perera", role: "Homeowner, Kandy" },
+      { quote: "They supplied and installed the machinery for my workshop. Genuine parts and real support when I needed it.", name: "Fathima Rizwan", role: "Workshop owner, Matale" },
+      { quote: "Quality appliances at a fair price, delivered to my door. I've recommended them to my whole family.", name: "Suresh Kumar", role: "Customer, Welimada" },
     ],
   },
 
   branchLocator: {
-    eyebrow: "Branch locator",
-    title: "Find a branch near you",
+    eyebrow: "Showroom locator",
+    title: "Find a showroom near you",
     subtitle: "Serving the Central, Uva and Southern provinces. Search by city or filter by province.",
     searchPlaceholder: "Search by city or district…",
     allProvinces: "All provinces",
-    resultsOne: "branch found",
-    resultsMany: "branches found",
-    noResults: "No branches match your search. Try another city or province.",
+    resultsOne: "showroom found",
+    resultsMany: "showrooms found",
+    noResults: "No showrooms match your search. Try another city or province.",
     viewOnMap: "View on map",
     getDirections: "Get directions",
-    callBranch: "Call branch",
+    callBranch: "Call showroom",
     province: "Province",
-    selectPrompt: "Select a branch to see it on the map.",
+    selectPrompt: "Select a showroom to see it on the map.",
   },
 
   photoStrip: {
     eyebrow: "Where we work",
     title: "Rooted in the hill country",
     subtitle:
-      "Seven branches across the Central, Uva and Southern provinces, growing with the communities we serve.",
+      "Showrooms across the Central, Uva and Southern provinces, growing with the communities we serve.",
   },
 
   gallery: {
     eyebrow: "Gallery",
-    title: "Moments that define Power Mate Investment",
+    title: "Moments that define Power Mate Global",
     subtitle:
-      "A look at the milestones, people and communities behind our work, from branch openings to team training and community events.",
+      "A look at the milestones, people and communities behind our work, from showroom openings to team training and community events.",
     sections: [
       {
         title: "Our commitment to the customers we serve",
@@ -223,11 +202,11 @@ const en = {
         ],
       },
       {
-        title: "Our branch expansions",
-        subtitle: "Bringing Power Mate Investment closer to more communities.",
+        title: "Our showroom expansions",
+        subtitle: "Bringing Power Mate Global closer to more communities.",
         groups: [
-          { label: "Bandarawela branch opening" },
-          { label: "Mahiyanganaya branch opening" },
+          { label: "Bandarawela showroom opening" },
+          { label: "Mahiyanganaya showroom opening" },
         ],
       },
     ],
@@ -235,52 +214,52 @@ const en = {
 
   finalCta: {
     eyebrow: "Ready when you are",
-    title: "Let's strengthen your financial power",
-    subtitle: "Apply in minutes, or talk to a real person at your nearest branch. No obligation, no pressure.",
-    primary: "Apply Now",
+    title: "Let's power your home or business",
+    subtitle: "Send us an inquiry, or visit your nearest showroom. Genuine products, honest advice, no pressure.",
+    primary: "Inquire Now",
     secondary: "Talk to us",
   },
 
   about: {
     hero: {
       eyebrow: "About us",
-      title: "Built for Sri Lanka, owned by its people's ambitions",
+      title: "Bringing the world's best to Sri Lanka",
       subtitle:
-        "Power Mate Investment was founded to put fair, fast finance within reach of the hardworking majority, the farmers, traders and families who power the real economy.",
+        "Power Mate Global was founded to import dependable solar, machinery and home equipment, and put genuine quality within reach of every Sri Lankan home and business.",
     },
     storyTitle: "Our story",
     story: [
-      "We started with a simple frustration: too many capable people were turned away by finance that didn't understand how they earned. Seasonal incomes, informal businesses, first-time borrowers, all treated as risks instead of opportunities.",
-      "So we built differently. We listen first, lend fairly, and stay close, with branches in the towns we serve and officers who speak Sinhala, Tamil and English. Today we are proud to stand behind tens of thousands of Sri Lankan dreams.",
+      "We started with a simple frustration: too many imported products were overpriced, poorly supported, or simply not built to last. Customers paid premium prices and were left on their own when something went wrong.",
+      "So we built differently. We import direct from trusted manufacturers, price fairly, and stand behind every product with genuine parts and service, with showrooms in the towns we serve and staff who speak Sinhala, Tamil, English and Chinese.",
     ],
     missionTitle: "Our mission",
-    mission: "Empowering individuals and communities to achieve financial wellbeing through the power of micro-financing.",
+    mission: "Making genuine, dependable solar, machinery and home equipment accessible and affordable for every Sri Lankan.",
     visionTitle: "Our vision",
-    vision: "To be the most trusted and customer-friendly micro-financing partner.",
+    vision: "To be Sri Lanka's most trusted importer of energy, industrial and home solutions.",
     valuesTitle: "Our core values",
     values: [
-      { title: "Integrity", description: "We act with honesty, fairness and responsibility in all our dealings." },
-      { title: "Customer-Centricity", description: "Our customers' success is at the heart of everything we do." },
-      { title: "Innovation", description: "We continuously improve and adapt to deliver smarter financial solutions." },
-      { title: "People First", description: "We nurture and empower our employees to grow and succeed." },
-      { title: "Community Impact", description: "We are committed to uplifting lives and supporting sustainable development." },
+      { title: "Integrity", description: "We deal honestly and price fairly in everything we import and sell." },
+      { title: "Customer-Centricity", description: "Our customers' satisfaction is at the heart of everything we do." },
+      { title: "Quality First", description: "We import only the products we would trust in our own homes and workshops." },
+      { title: "People First", description: "We nurture and empower our team to grow and succeed." },
+      { title: "Community Impact", description: "We help homes and businesses save energy, work better and live more comfortably." },
     ],
     statsTitle: "Trusted at scale",
     stats: [
       { value: "5+", label: "Years of service" },
-      { value: "7", label: "Branches" },
-      { value: "10,000+", label: "Customers served" },
+      { value: "7", label: "Showrooms" },
+      { value: "100+", label: "Products imported" },
       { value: "3", label: "Provinces covered" },
     ],
     teamTitle: "Our management team",
-    teamSubtitle: "The people guiding Power Mate Investment.",
+    teamSubtitle: "The people guiding Power Mate Global.",
     team: [
       {
         name: "Dhammika Gunasena",
         role: "Director",
         photo: "/team/dhammika.jpg",
         initials: "DG",
-        bio: "Director with over 25 years of leadership across the insurance, telecommunications, FMCG and financial-services sectors. He brings deep expertise in sales and marketing, insurance operations, bancassurance, underwriting, finance and business development, with a professional network spanning the UAE, Singapore, China and Sri Lanka. An alumnus of Dharmaraja College, he holds higher-education qualifications from Wayamba University of Sri Lanka.",
+        bio: "Director with over 25 years of leadership across the insurance, telecommunications, FMCG and financial-services sectors. He brings deep expertise in sales and marketing, business operations, finance and business development, with a professional network spanning the UAE, Singapore, China and Sri Lanka. An alumnus of Dharmaraja College, he holds higher-education qualifications from Wayamba University of Sri Lanka.",
         links: [{ label: "LinkedIn", href: "https://www.linkedin.com/in/dhammika-gunasena-864243b7" }],
       },
       {
@@ -307,31 +286,31 @@ const en = {
 
   productsPage: {
     hero: {
-      eyebrow: "Products & services",
-      title: "Finance shaped around how you live and earn",
-      subtitle: "Four core solutions, one promise: fair terms, fast answers, and a partner who stays.",
+      eyebrow: "Products",
+      title: "Solutions for energy, enterprise and everyday life",
+      subtitle: "Three categories, one promise: genuine imports, fair prices and real support after the sale.",
     },
     featuresLabel: "Highlights",
     everyProductTitle: "Every product comes with",
     everyProduct: [
-      "Approval in as little as 24 hours",
-      "Repayment matched to your cash flow",
-      "Service in Sinhala, Tamil or English",
-      "No hidden fees, ever",
+      "Genuine, factory-direct imports",
+      "Warranty on every product",
+      "Spare parts & technical support",
+      "Islandwide delivery",
     ],
   },
 
   careers: {
     hero: {
       eyebrow: "Careers",
-      title: "Strengthen your community, and your future",
+      title: "Grow with Sri Lanka's trusted import partner",
       subtitle:
-        "We grow people the way we grow businesses: with trust, training and room to rise. Join a team that measures success in lives changed.",
+        "We grow people the way we grow the business: with trust, training and room to rise. Join a team bringing better products to more homes and businesses.",
     },
     whyTitle: "Why build your career here",
     perks: [
-      { title: "Grow fast", description: "Structured training and clear paths from branch floor to leadership." },
-      { title: "Real impact", description: "Your work directly helps families and businesses in your own community thrive." },
+      { title: "Grow fast", description: "Structured training and clear paths from the showroom floor to leadership." },
+      { title: "Real impact", description: "Your work puts dependable energy and equipment into homes and businesses in your own community." },
       { title: "Fair rewards", description: "Competitive pay, performance bonuses and benefits that respect your effort." },
     ],
     openingsTitle: "Current openings",
@@ -339,10 +318,10 @@ const en = {
     locationLabel: "Location",
     typeLabel: "Type",
     openings: [
-      { role: "Branch Manager", department: "Operations", location: "Islandwide", type: "Full-time" },
-      { role: "Marketing Executive", department: "Marketing", location: "Islandwide", type: "Full-time" },
-      { role: "Field Recovery Officer", department: "Collections", location: "Central & Uva", type: "Full-time" },
-      { role: "Customer Relationship Officer", department: "Front Office", location: "Central & Uva", type: "Full-time" },
+      { role: "Showroom Manager", department: "Operations", location: "Islandwide", type: "Full-time" },
+      { role: "Sales Executive", department: "Sales", location: "Islandwide", type: "Full-time" },
+      { role: "Solar Technician", department: "Technical", location: "Central & Uva", type: "Full-time" },
+      { role: "Customer Service Officer", department: "Front Office", location: "Central & Uva", type: "Full-time" },
     ],
     noOpeningTitle: "Don't see your role?",
     noOpeningText: "We're always looking for talented people. Send your CV and we'll be in touch when something fits.",
@@ -353,7 +332,7 @@ const en = {
   contact: {
     hero: {
       eyebrow: "Contact us",
-      title: "Talk to a partner who listens",
+      title: "Talk to a team that listens",
       subtitle: "Call our hotline, message us on WhatsApp, or fill in the form below and we'll come back to you within one working day.",
     },
     detailsTitle: "Reach us directly",
@@ -374,20 +353,20 @@ const en = {
     hero: {
       eyebrow: "FAQs",
       title: "Questions, answered plainly",
-      subtitle: "Everything you need to know about applying, eligibility and repayment. Still unsure? We're one call away.",
+      subtitle: "Everything you need to know about our products, warranty, delivery and support. Still unsure? We're one call away.",
     },
     items: [
-      { q: "Who can apply for a loan?", a: "Any Sri Lankan citizen aged 18 or above with a valid National Identity Card and a regular income, formal or informal, can apply. Different products have different requirements; our officers will guide you through what fits." },
-      { q: "What documents do I need?", a: "At minimum: your NIC, proof of income or business, and proof of address. Gold loans require only your NIC and the gold item. Bring originals to any branch and we'll handle the rest." },
-      { q: "How long does approval take?", a: "Most applications are assessed within 24 hours. Gold loans are typically released the same day. We'll always tell you upfront how long your specific application will take." },
-      { q: "How is interest calculated?", a: "We use the reducing-balance method, so you pay interest only on the outstanding balance. Rates depend on the product, term and your profile, and are fully disclosed before you sign." },
-      { q: "Can I repay early?", a: "Yes. Early settlement is welcome and can reduce your total interest. Ask your branch officer for an early-settlement quote at any time." },
-      { q: "What happens if I miss a payment?", a: "Talk to us early, we'd always rather restructure than penalise. Reach your branch or hotline and we'll work out a plan that fits your situation." },
+      { q: "What products does Power Mate Global supply?", a: "We import and sell household solar systems, SME machinery, and home equipment and appliances, all sourced direct from trusted manufacturers." },
+      { q: "Are your products genuine and warrantied?", a: "Yes. Everything we sell is genuine, factory-sourced stock and comes with a manufacturer or company warranty. We keep the paperwork so you're fully covered." },
+      { q: "Do you install solar systems and machinery?", a: "Yes. Our technical team handles installation, commissioning and basic training for solar systems and most machinery. Talk to us about your site and we'll advise." },
+      { q: "Do you deliver islandwide?", a: "We deliver across Sri Lanka from our showroom network. Delivery times and charges depend on the product and your location, and we'll always confirm them upfront." },
+      { q: "What after-sales support do you offer?", a: "We stock genuine spare parts and provide servicing and technical help long after purchase. Reach your nearest showroom or our hotline any time." },
+      { q: "How do I get a price or place an order?", a: "Send us an inquiry through the website, WhatsApp or phone, or visit a showroom. We'll give you a clear quote and guide you through the rest." },
     ],
     stillHaveQuestions: "Still have questions?",
-    contactPrompt: "Our team is happy to help in Sinhala, Tamil or English.",
+    contactPrompt: "Our team is happy to help in Sinhala, Tamil, English or Chinese.",
     disclaimer:
-      "These are general answers. Final eligibility, rates and repayment terms are assessed individually and may vary with your personal credit rating, and specific terms and conditions may apply to each risk profile.",
+      "These are general answers. Product availability, specifications, warranty terms, prices and delivery may vary, and specific terms and conditions apply to each product.",
   },
 
   form: {
@@ -399,16 +378,16 @@ const en = {
     emailPlaceholder: "you@example.com",
     product: "I'm interested in",
     selectProduct: "Select a product",
-    branch: "Preferred branch",
-    selectBranch: "Select a branch",
-    amount: "Amount needed (LKR)",
+    branch: "Preferred showroom",
+    selectBranch: "Select a showroom",
+    amount: "Budget (LKR)",
     message: "Message",
     messagePlaceholder: "Tell us a little about what you need…",
     consent: "I agree to be contacted about my inquiry.",
-    submitApply: "Submit application",
+    submitApply: "Send inquiry",
     submitContact: "Send message",
     successTitle: "Thank you, we've got it.",
-    successBody: "A Power Mate Investment officer will contact you within one working day.",
+    successBody: "A Power Mate Global representative will contact you within one working day.",
     sendAnother: "Send another message",
     errorTitle: "Something went wrong",
     errorBody: "We couldn't send your message. Please try again, or call our hotline.",
@@ -422,13 +401,13 @@ const en = {
   },
 
   footer: {
-    blurb: "A trusted Sri Lankan finance partner, fast, fair and flexible loans for individuals, farmers and businesses.",
+    blurb: "Sri Lanka's trusted importer of household solar, SME machinery and home equipment, genuine products, fair prices and real support.",
     quickLinks: "Quick links",
     products: "Products",
     contactTitle: "Get in touch",
     followUs: "Follow us",
     rights: "All rights reserved.",
-    licence: "A registered finance company. Lending is subject to terms, conditions and credit assessment.",
+    licence: "Power Mate Global (Pvt) Ltd. Product specifications, prices and availability are subject to change.",
   },
 };
 

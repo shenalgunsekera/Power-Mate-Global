@@ -70,7 +70,7 @@ export function LeadForm({
 
     // Clean, structured WhatsApp message
     const lines = [
-      `*${mode === "apply" ? "New loan application" : "New inquiry"} — Power Mate Investment*`,
+      `*${mode === "apply" ? "New product inquiry" : "New inquiry"} — Power Mate Global*`,
       "",
       `*Name:* ${data.name}`,
       `*Phone:* ${data.phone}`,

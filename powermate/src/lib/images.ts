@@ -6,7 +6,15 @@
 const BASE = "https://images.unsplash.com/photo-";
 
 export const img = {
-  // Sri Lanka — bustling local market: the traders and small businesses Power Mate backs
+  // Rooftop / field solar panels against the sky — hero
+  solarHero: `${BASE}1509391366360-2e959784a276`,
+  // Solar panels close-up — household solar product
+  solarPanels: `${BASE}1508514177221-188b1cf16e9d`,
+  // Industrial machinery / engineering — SME machinery product
+  machinery: `${BASE}1581092160562-40aa08e78837`,
+  // Modern kitchen appliances — household equipment product
+  appliances: `${BASE}1556911220-bff31c812dba`,
+  // Sri Lanka — bustling local market: the businesses Power Mate Global supplies
   marketLife: `${BASE}1548285788-6b5c92110fee`,
   // Sri Lanka — Nine Arches Bridge, Ella (Gemma Fjam)
   nineArches: `${BASE}1574611122955-5baa61496637`,
@@ -49,28 +57,16 @@ export function sized(
 import type { ProductKey } from "@/data/site";
 
 export const productCardImages: Record<ProductKey, { src: string; alt: string }> = {
-  micro: {
-    src: sized(img.mirisssaPeople, { w: 640, h: 380, q: 80 }),
-    alt: "Sri Lankan community at Mirissa beach — the people Power Mate serves",
+  solar: {
+    src: sized(img.solarPanels, { w: 640, h: 380, q: 80 }),
+    alt: "Solar panels under a clear sky — household solar power systems",
   },
-  sme: {
-    src: sized(img.tukTuks, { w: 640, h: 380, q: 80 }),
-    alt: "Tuk-tuks in Sri Lanka — the small businesses Power Mate helps grow",
+  machinery: {
+    src: sized(img.machinery, { w: 640, h: 380, q: 80 }),
+    alt: "Industrial machinery — equipment imported for small and medium enterprises",
   },
-  agriculture: {
-    src: sized(img.ricePlanting, { w: 640, h: 380, q: 80 }),
-    alt: "Person planting rice in a paddy field — agriculture loans support Sri Lanka's farmers",
-  },
-  gold: {
-    src: sized(img.goldJewelry, { w: 640, h: 380, q: 80 }),
-    alt: "Gold rings and necklace — gold loan facility with same-day release",
-  },
-  leasing: {
-    src: sized(img.galleTukTuk, { w: 640, h: 380, q: 80 }),
-    alt: "Tuk-tuk parked at Galle Fort, Sri Lanka — vehicle leasing for every journey",
-  },
-  insurance: {
-    src: sized(img.mirisssaBeach, { w: 640, h: 380, q: 80 }),
-    alt: "Coconut Tree Hill, Mirissa, Sri Lanka — protecting what you've worked hard to build",
+  equipment: {
+    src: sized(img.appliances, { w: 640, h: 380, q: 80 }),
+    alt: "Modern home appliances — household equipment imported direct",
   },
 };

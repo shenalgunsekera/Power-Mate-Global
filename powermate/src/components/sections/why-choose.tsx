@@ -25,7 +25,7 @@ export function WhyChoose({ dict }: { dict: Dictionary }) {
           <Reveal kind="left" className="relative min-h-[22rem] overflow-hidden rounded-[1.75rem] lg:min-h-full">
             <Image
               src="/Locations/Kandy/Kandy.png"
-              alt="Kandy, Central Province, the communities Power Mate Investment serves"
+              alt="Kandy, Central Province, the communities Power Mate Global serves"
               fill
               sizes="(max-width: 1024px) 100vw, 38vw"
               className="object-cover"

@@ -5,7 +5,6 @@ import { Hero } from "@/components/sections/hero";
 import { ProductsGrid } from "@/components/sections/products-grid";
 import { SriLankaPhotoStrip } from "@/components/sections/sl-photo-strip";
 import { WhyChoose } from "@/components/sections/why-choose";
-import { LoanCalculator } from "@/components/sections/loan-calculator";
 import { Stories } from "@/components/sections/stories";
 import { BranchLocator } from "@/components/sections/branch-locator";
 import { CtaBand } from "@/components/sections/cta-band";
@@ -28,7 +27,6 @@ export default async function HomePage({ params }: PageProps<"/[lang]">) {
       <ProductsGrid locale={locale} dict={dict} variant="home" />
       <SriLankaPhotoStrip dict={dict} />
       <WhyChoose dict={dict} />
-      <LoanCalculator locale={locale} dict={dict} />
       <Stories dict={dict} />
       <BranchLocator locale={locale} dict={dict} />
       <CtaBand locale={locale} dict={dict} />

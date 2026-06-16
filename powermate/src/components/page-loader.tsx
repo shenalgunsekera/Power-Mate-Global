@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 
 const EASE_EXPO: [number, number, number, number] = [0.16, 1, 0.3, 1];
@@ -85,13 +84,16 @@ export function PageLoader() {
                 className="absolute -inset-5 rounded-full border border-white/10 [animation:pm-ring-spin_8s_linear_infinite]"
                 style={{ borderTopColor: "var(--brand-300)" }}
               />
-              <Image
-                src="/logo-powermate.png"
-                alt="Power Mate Investment"
-                width={160}
-                height={160}
-                priority
-                className="size-16 object-contain drop-shadow-[0_8px_24px_rgba(0,0,0,0.35)]"
+              {/* Mark only — zoom past the baked-in wordmark/tagline in the PNG */}
+              <span
+                role="img"
+                aria-label="Power Mate Global"
+                className="block size-16 bg-no-repeat drop-shadow-[0_8px_24px_rgba(0,0,0,0.35)]"
+                style={{
+                  backgroundImage: "url(/logo-powermate.png)",
+                  backgroundSize: "190%",
+                  backgroundPosition: "50% 20%",
+                }}
               />
             </motion.div>
 
@@ -103,7 +105,7 @@ export function PageLoader() {
             >
               <span className="font-display text-lg font-extrabold tracking-tight">POWER MATE</span>
               <span className="font-display text-[0.62rem] font-semibold tracking-[0.32em] text-brand-200">
-                INVESTMENT
+                GLOBAL
               </span>
             </motion.div>
 

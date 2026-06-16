@@ -5,7 +5,6 @@ import { isLocale, type Locale } from "@/i18n/config";
 import { getDictionary } from "@/i18n/dictionaries";
 import { productOrder } from "@/data/site";
 import { ProductIcon } from "@/components/ui/product-icon";
-import { LoanCalculator } from "@/components/sections/loan-calculator";
 import { CtaBand } from "@/components/sections/cta-band";
 import { ButtonLink } from "@/components/ui/button";
 import { localeHref } from "@/lib/utils";
@@ -105,7 +104,6 @@ export default async function ProductsPage({ params }: PageProps<"/[lang]/produc
         </div>
       </section>
 
-      <LoanCalculator locale={locale} dict={dict} />
       <CtaBand locale={locale} dict={dict} />
     </>
   );

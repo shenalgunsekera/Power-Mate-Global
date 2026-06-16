@@ -6,7 +6,9 @@
 const BASE = "https://images.unsplash.com/photo-";
 
 export const img = {
-  // Rooftop / field solar panels against the sky — hero
+  // Stacked shipping containers — the import business at a glance (hero)
+  importYard: `${BASE}1494412574643-ff11b0a5c1c3`,
+  // Rooftop / field solar panels against the sky
   solarHero: `${BASE}1509391366360-2e959784a276`,
   // Solar panels close-up — household solar product
   solarPanels: `${BASE}1508514177221-188b1cf16e9d`,

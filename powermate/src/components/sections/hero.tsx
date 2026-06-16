@@ -38,16 +38,16 @@ export function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
       ref={ref}
       className="relative flex min-h-svh flex-col overflow-hidden bg-brand-950 text-white"
     >
-      {/* ── Background photo — solar array, parallax via overscan ── */}
+      {/* ── Background photo — shipping containers, parallax via overscan ── */}
       <div aria-hidden className="absolute inset-0 overflow-hidden">
         <motion.div className="absolute inset-0 scale-[1.18]" style={{ y: photoY }}>
           <Image
-            src={sized(img.solarHero, { w: 1920, q: 85 })}
+            src={sized(img.importYard, { w: 1920, q: 85 })}
             alt=""
             fill
             priority
             sizes="100vw"
-            className="object-cover object-[65%_45%]"
+            className="object-cover object-center"
           />
         </motion.div>
         <div className="absolute inset-0 bg-linear-to-r from-brand-950/85 via-brand-900/40 to-transparent" />

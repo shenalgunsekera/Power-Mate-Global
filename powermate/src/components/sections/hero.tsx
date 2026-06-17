@@ -8,7 +8,6 @@ import type { Locale } from "@/i18n/config";
 import type { Dictionary } from "@/i18n/dictionaries";
 import { localeHref } from "@/lib/utils";
 import { company } from "@/data/site";
-import { img, sized } from "@/lib/images";
 import { ButtonLink } from "@/components/ui/button";
 
 const EASE: [number, number, number, number] = [0.16, 1, 0.3, 1];
@@ -38,11 +37,11 @@ export function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
       ref={ref}
       className="relative flex min-h-svh flex-col overflow-hidden bg-brand-950 text-white"
     >
-      {/* ── Background photo — shipping containers, parallax via overscan ── */}
+      {/* ── Background photo — custom hero banner, parallax via overscan ── */}
       <div aria-hidden className="absolute inset-0 overflow-hidden">
         <motion.div className="absolute inset-0 scale-[1.18]" style={{ y: photoY }}>
           <Image
-            src={sized(img.importYard, { w: 1920, q: 85 })}
+            src="/hero-banner.png"
             alt=""
             fill
             priority
